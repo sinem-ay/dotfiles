@@ -5,8 +5,13 @@ vim.lsp.enable('ruff')
 local severity = vim.diagnostic.severity
 
 vim.diagnostic.config({
-  -- virtual_lines = true,
-  virtual_text = true,
+  underline = {
+    severity = {
+      min = vim.diagnostic.severity.ERROR,
+    },
+  },
+  virtual_lines = false,
+  virtual_text = false,
   signs = {
     text = {
       [severity.ERROR] = " ",
